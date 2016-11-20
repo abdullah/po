@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <canvas id="canvas"></canvas> -->
+    <div class="circle"></div>  
+    <div class="options">
+        
+        <textarea name="" id="rules">
+A = B,
+B = CAD,
+D = AADE,
+E = {F}AGEA,
+F = FF
+        </textarea>
+
+        <input type="text" id="axiom" placeholder="Axiom || A">
+        <input type="text" id="octave" placeholder="octave || 3">
+        <input type="text" id="duration" placeholder="duration || .1 ms">
+        <input type="text" id="iterasyon" placeholder="iterasyon || 2">
+        <hr>
+        { --  Organ <br>
+        } --  Acoustic <br>
+        [ --- Edm  <br>
+        ] --- Piano <br>
+        + --- Octave  <br>
+        - --- Octave <br>
+        <hr>
+        Default
+        <select name="" id="default">
+            <option value="piano">piano</option>
+            <option value="organ">Organ</option>
+            <option value="acoustic">acoustic</option>
+            <option value="edm">edm</option>
+        </select>
+        <hr>
+        <button onclick="stop()">stop</button>
+        <button onclick="start()">start</button>
+    </div>
+    <div class="result"></div>
+
+
+    <script src="js/helper.js"></script>
+    <script src="js/audiosynth.js"></script>
+    <script src="js/po.js"></script>
+    <script>
+        var po = new Po()
+
+        function start() {
+            po.start()
+        }
+
+        function stop() {
+            po.stop()
+        }
+    </script>
+</body>
+</html>
