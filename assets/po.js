@@ -71,10 +71,10 @@ Po.prototype.init = function(){
 Po.prototype.generateLString = function(str){
 	this.LString = str
 	var tmp = ""
-
+	var _rules = this.rules.concat(this.constant)
 	Array.from(str).map(function (c) {
 
-        this.rules.map(function (rule) {
+        _rules.map(function (rule) {
             if (rule[0] == c) {
                  tmp += c.replace(rule[0],rule[1])
             }
