@@ -34,3 +34,9 @@ button{
 	margin-top: 5px;
 	padding: 4px 0;
 }
+
+canvas{
+	background-color: #ddd;
+	margin-left: 250px;
+	top: 0;
+}

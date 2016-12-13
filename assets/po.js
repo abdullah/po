@@ -30,7 +30,16 @@ function Po(options) {
 	this.duration 			= options.duration
 	this.defaultInstrument	= options.defaultInstrument
 
-	this.constant 	= [['[','['],[']',']','+','-']]
+	this.constant 	= 
+				[
+				['[','['],
+				[']',']'],
+				['+','+'],
+				['-','-'],
+				['{','{'],
+				['}','}']
+			]
+
 	this.LString 	= ""
 
 
@@ -91,6 +100,7 @@ Po.prototype.generateLString = function(str){
 
 var interval = null
 
+
 Po.prototype.play = function(){
 	
 	console.log("Result : ",this.LString)
@@ -98,42 +108,47 @@ Po.prototype.play = function(){
 	var notes = Array.from(this.LString)
 	var size = notes.length
 	var duration = this.duration
-
+	var d  = 100
 	interval = setInterval(function () {
 		var index = notes.length-size
 		var note = notes[index]
 		var nextNote = notes[index+1]
-
+		// this.draw()
 		if (size > 0) {
 			try {
 				switch (note) {
 					case '{':
-						instrument.organ.play(nextNote,this.octave,duration)
+						// instrument.organ.play(nextNote,this.octave,duration)
 					break;
 					case '}':
-						instrument.acoustic.play(nextNote,this.octave,duration)
+						// instrument.acoustic.play(nextNote,this.octave,duration)
 					break;
 					case '[':
-						instrument.edm.play(nextNote,this.octave,duration)
+						// instrument.edm.play(nextNote,this.octave,duration)
 					break;
 					case ']':
-						instrument.piano.play(nextNote,this.octave,duration)
+						// instrument.piano.play(nextNote,this.octave,duration)
 					break;
 					case '+':
-						instrument[this.defaultInstrument].play(nextNote,this.octave+1,duration)
+						// instrument[this.defaultInstrument].play(nextNote,this.octave+1,duration)
 					break;
 					case '-':
-						instrument[this.defaultInstrument].play(nextNote,this.octave-1,duration)
+						// instrument[this.defaultInstrument].play(nextNote,this.octave-1,duration)
+						// context.rotate(Math.PI / 2);
 					break;
 					default:
-						console.log(interval)
+						// context.rotate(Math.PI / 1);
+						const audio = document.querySelector(`audio[data-key="${note}"]`);
+						audio.currentTime = 0;
+    					audio.play();
+
 						instrument[this.defaultInstrument].play(note,this.octave,duration)
 					break;
 				}
 
 			} catch(e) {
 				// statements
-				console.log(e);
+				console.log(e,note);
 			}
 
 		}else{

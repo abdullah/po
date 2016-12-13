@@ -5,6 +5,16 @@
 	<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+	<audio data-key="A" src="assets/sounds/clap.wav"></audio>
+	<audio data-key="B" src="assets/sounds/hihat.wav"></audio>
+	<audio data-key="C" src="assets/sounds/kick.wav"></audio>
+	<audio data-key="D" src="assets/sounds/openhat.wav"></audio>
+	<audio data-key="E" src="assets/sounds/boom.wav"></audio>
+	<audio data-key="F" src="assets/sounds/ride.wav"></audio>
+	<audio data-key="G" src="assets/sounds/snare.wav"></audio>
+	<audio data-key="{" src="assets/sounds/tom.wav"></audio>
+	<audio data-key="}" src="assets/sounds/tink.wav"></audio>
+
 	<div class="opt">
 		<span>Rules</span>
 		<textarea id="rules"></textarea>
@@ -34,16 +44,20 @@
 		var po = new Po({
 			axiom: 'A',
 			rules: [
-				['A','A{ACD+BA'],
-				['B','CD'],
-				['D','A+ADE-'],
-				['E','FA+G-EA'],
-				['F','FF'],
+				['A','AB'],
+				['B','CCB{DD}BAC'],
+				['C','AD'],
+				['D','EFGG'],
+				['E','EE'],
+				['F','{C}'],
+				['G','BCD'],
+				['{','B}G'],
+				['}','[A]G'],
 			],
 			iteration: 4,
-			duration:1,
+			duration:2,
 			octave:3,
-			defaultInstrument : "acoustic"
+			defaultInstrument : "piano"
 		})
 
 		function stop() {
@@ -53,7 +67,6 @@
 		function start() {
 			po.start()
 		}
-
 
 	</script>
 </body>
