@@ -42,13 +42,13 @@
 	<script src="assets/po.js"></script>
 	<script>
 		var po = new Po({
-			axiom: 'A',
+			axiom: 'E',
 			rules: [
 				['A','AB'],
 				['B','CCB{DD}BAC'],
 				['C','AD'],
 				['D','EFGG'],
-				['E','EE'],
+				['E','EG'],
 				['F','{C}'],
 				['G','BCD'],
 				['{','B}G'],
@@ -56,8 +56,8 @@
 			],
 			iteration: 4,
 			duration:2,
-			octave:3,
-			defaultInstrument : "piano"
+			octave:4,
+			defaultInstrument : "acoustic"
 		})
 
 		function stop() {
